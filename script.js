@@ -55,12 +55,15 @@ let curQuestion = begin;
 //const lastQuestion = questions.length - 1;
 const lastQuestion = questions.length;
 let TIMER;
+
 start.addEventListener('click', startQuiz);
+
 function startQuiz() {
     score = 0;
     showQuestions();
     startTimer(timeLimit, render);
 }
+
 // dynamically load questions
 function showQuestions() {
     let q = questions[curQuestion];
@@ -71,6 +74,7 @@ function showQuestions() {
     choiceC.innerHTML = q.choiceC;
     choiceD.innerHTML = q.choiceD;
 }
+
 // check answer against array values
 function check(answer) {
     if (answer == questions[curQuestion].answer) {
@@ -90,6 +94,7 @@ function check(answer) {
         showScore();
     }
 }
+
 // timer functions
 function startTimer(duration, display) {
     console.log('NOTICE: timer started');
@@ -108,9 +113,11 @@ function startTimer(duration, display) {
         updateTimer(timeLeft);
     }, 1000);
 }
+
 function updateTimer(t) {
     render.textContent = t;
 }
+
 function showScore() {
     // format quiz results
     var scorePct = Math.round(100 * score / questions.length);
